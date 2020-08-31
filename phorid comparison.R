@@ -17,7 +17,6 @@ p_len<-ggplot(data=data_phorid, aes(x=Part, y=Length, fill=Measurer)) +
   theme_gray()+ scale_x_discrete(limits = part_order)
 p_len
 
-
 p_vol<-ggplot(data=data_phorid, aes(x=Part, y=Volume, fill=Measurer)) +
   geom_bar(stat="identity",position="dodge")+
   facet_wrap(~ZRC)+
@@ -80,6 +79,24 @@ p_vol_psycho<-ggplot(data=data_psycho, aes(x=Part, y=Volume, fill=Measurer)) +
   facet_wrap(~ZRC, ncol = 5,scales = "free")+
   theme_gray()+ scale_x_discrete(limits = part_order_psycho)
 p_vol_psycho
+
+###############
+#wasp comprison
+data_wasp <- read.csv("wasp_data.csv")
+
+part_order_wasp<-c("Head","Thorax","Abdomen","Ovipositor")
+p_len_wasp<-ggplot(data=data_wasp, aes(x=Part, y=Length, fill=Measurer)) +
+  geom_bar(stat="identity",position="dodge")+
+  facet_wrap(~ZRC, ncol = 5, scales="free")+
+  theme_gray()+ scale_x_discrete(limits = part_order_wasp)
+p_len_wasp
+
+
+p_vol_wasp<-ggplot(data=data_wasp, aes(x=Part, y=Volume, fill=Measurer)) +
+  geom_bar(stat="identity",position="dodge")+
+  facet_wrap(~ZRC, ncol = 5,scales = "free")+
+  theme_gray()+ scale_x_discrete(limits = part_order_wasp)
+p_vol_wasp
 
 
 ################
